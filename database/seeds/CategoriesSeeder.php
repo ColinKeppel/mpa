@@ -13,15 +13,15 @@ class CategoriesSeeder extends Seeder
     {
         $categories = [
             [
-                'name' => 'RPG',
-                'details' => 'Role-playing Game',
+                'name' => 'Computer Games',
+                'details' => 'Computer-games',
             ], [
-                'name' => 'Open world',
-                'details' => 'Free-roaming worlds',
+                'name' => 'Board-game',
+                'details' => 'Board-games',
             ], [
-                'name' => 'Survival',
-                'details' => 'Survival game',
-            ], 
+                'name' => 'Apps',
+                'details' => 'App-games',
+            ]
         ];
         
         DB::table('categories')->insert($categories);

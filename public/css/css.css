@@ -4,5 +4,14 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
  */
 body {
-  padding-top: 56px;
+  padding-top: 80px;
+}
+
+#stock {
+  display: inline-block;
+  margin-left: 31px;
+}
+
+#footerBox {
+  display: inline-block;
 }
