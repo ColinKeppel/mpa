@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\product;
+use App\category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -12,12 +13,24 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( )
     {
-        $products = product::paginate(10);
+        $products = product::get();
+        $categories = category::get();
 
+        $data = [
+            "products" => $products,
+            "categories" => $categories
+        ];
         
-        return view('index', compact("products"));
+        return view('index', $data);
+     
+    }
+
+    public function shoppingCart() 
+    {
+        $cart = ShoppingCart::getCart();
+        return view('shopping-cart')->with(["cart" => $cart]);
     }
 
     /**

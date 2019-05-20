@@ -9,11 +9,14 @@
 
         <h1 class="my-4">Games & Go</h1>
         <div class="list-group">
-          <a href="#" class="list-group-item">Computer games</a>
-          <a href="#" class="list-group-item">Board games</a>
-          <a href="#" class="list-group-item">App games</a>
-        </div>
 
+        @foreach ($categories as $category)
+        
+          <a href="#" class="list-group-item">{{$category['name']}}</a>
+
+        @endforeach
+
+        </div>
       </div>
       <!-- /.col-lg-3 -->
       <div class="col-lg-9">
