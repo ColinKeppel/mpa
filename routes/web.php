@@ -12,3 +12,9 @@
 */
 
 Route::get('/', 'ProductController@index');
+
+Auth::routes();
+
+Route::get('/succes', 'SuccesController@index');
+
+

@@ -27,6 +27,9 @@ class Category_ProductSeeder extends Seeder
             ], [
                 'category_id' => 2,
                 'product_id' => 5,
+            ], [
+                'category_id' => 3,
+                'product_id' => 6,
             ]
         ];
         //category 1

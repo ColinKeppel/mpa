@@ -37,6 +37,11 @@ class ProductsSeeder extends Seeder
                 'price' => '10',
                 'stock' => '5',
                 'details' => 'Tactics',
+            ],[
+                'name' => 'Clash of clans',
+                'price' => '2.99',
+                'stock' => '2',
+                'details' => 'Tactics, City-builder',
             ]
         ];
 
