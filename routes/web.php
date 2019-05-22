@@ -17,4 +17,8 @@ Auth::routes();
 
 Route::get('/succes', 'SuccesController@index');
 
+Route::get('ShoppingCartStore', 'ShoppingCartController@store')->name('store','ShoppingCart');
 
+Route::resource('ShoppingCart', 'ShoppingCartController')->name('index','ShoppingCart');
+
+Route::get('/add-to-cart/{id}', 'ProductController@getAddToCart')->name('getAddToCart');

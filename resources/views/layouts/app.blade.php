@@ -71,7 +71,9 @@
                             </li>
                         @endguest
                         <li class="nav-item">
-                            <a class="nav-link" href=""><i class="fa fa-shopping-basket"></i></a>
+                            <a class="nav-link" href="{{ route('ShoppingCart') }}"><i class="fa fa-shopping-basket"></i>
+                            <span class="badge">{{ Session::has('cart') ? Session::get('cart') ->totalQuantity : ''}}
+                            </a>
                         </li>
                     </ul>
                 </div>

@@ -33,13 +33,20 @@
                   <h5>€ {{$product['price']}}</h5>
                   <p class="card-text">{{$product['details']}}</p>
                 </div>
+                
                 <div id="footerBox" class="card-footer">
-                <a class="btn btn-primary" href="#" role="button">Add to cart</a><p id="stock">{{$product['stock']}} in stock</p>
+                  {{ Form::open(array ( 'action'('ShoppingCartController@store', $product->id))) }}
+                    <input value="{{$product['id']}}" name="id" hidden>
+                    <button class="btn btn-primary" type="submit" href="" role="button">Add to cart</button>
+                    <input type="number" class="form-control col-5 float-right" value="1" name="quantity">
+                  {{ Form::close() }}
                 </div>
+                
               </div>
             </div>
   @endforeach
 
+{{-- {{ route('getAddToCart', ['id' => $product->id]) }} --}}
         </div>
         <!-- /.row -->
 
