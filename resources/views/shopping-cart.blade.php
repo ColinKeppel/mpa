@@ -90,4 +90,5 @@
         </div>
     </div>
 </div>
+{{ dd($cart) }}
  @endsection

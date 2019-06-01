@@ -15,7 +15,6 @@
           <a href="#" class="list-group-item">{{$category['name']}}</a>
 
         @endforeach
-
         </div>
       </div>
       <!-- /.col-lg-3 -->
@@ -35,11 +34,17 @@
                 </div>
                 
                 <div id="footerBox" class="card-footer">
-                  {{ Form::open(array ( 'action'('ShoppingCartController@store', $product->id))) }}
+                  <!-- {{ Form::open(array ( 'action'('ShoppingCartController@store', $product->id))) }}
                     <input value="{{$product['id']}}" name="id" hidden>
                     <button class="btn btn-primary" type="submit" href="" role="button">Add to cart</button>
                     <input type="number" class="form-control col-5 float-right" value="1" name="quantity">
-                  {{ Form::close() }}
+                  {{ Form::close() }} -->
+                  <form action="shoppingcart" method="POST">
+                  {{ csrf_field() }}
+                    <input value="{{$product['id']}}" name="id" hidden>
+                    <button class="btn btn-primary" type="submit" href="" role="button">Add to cart</button>
+                    <input type="number" class="form-control col-5 float-right" value="1" name="quantity">
+                  </form>
                 </div>
                 
               </div>
@@ -55,6 +60,5 @@
 
     </div>
     <!-- /.row -->
-
   </div>
  @endsection
