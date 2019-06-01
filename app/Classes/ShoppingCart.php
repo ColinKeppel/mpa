@@ -3,49 +3,15 @@
 namespace App\Classes;
 
 use Session;
+use Illuminate\Http\Request;
  
  class ShoppingCart {
-
-    // public $items = null;
-    // public $totalQuantity = 0;
-    // public $totalPrice = 0;
-
-    // public function __construct($oldCart)
-    // {
-    //     if ($oldCart) {
-    //         $this->items = $oldCart->items;
-    //         $this->totalQuantity = $oldCart->totalQuantity;
-    //         $this->totalPrice = $oldCart->totalPrice;
-    //     }
-    // }
-
-    public static $items = [];
+     
         public static function getCart() {
-            return session ("shoppingCart");
+            return Session::get('cart');
         }
 
-        public static function addCartItem($item) {
-            if (array_key_exists($item["id"], $items)) {
-                $items[$item["id"]]++;
-            } else {
-                $items[$item['id']] = ["id" => $item["id"], "quantity" => $item["quantity"]];
-            }
+        public static function addCartItem($product) {
+            Session::push('cart', $product);
         }
-
-    // public function add($item, $id) {
-    //     $storedItem = ['quantity' => 0, 'price' => $item->price, 'item' => $item];
-    //     if ($this->items) {
-    //         if (array_key_exists($id, $this-items)) {
-    //             $storedItem = $this->items[$id];
-    //         }
-    //     }
-    //     $storedItem['quantity']++;
-    //     $storedItem['price'] = $item->price * $storedItem['quantity'];
-    //     $this->items[$id] = $storedItem;
-    //     $this->totalQuantity++;
-    //     $this->totalPrice += $item->price;
-    // }
-  
  }
-
-  

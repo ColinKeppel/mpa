@@ -69,12 +69,10 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('ShoppingCart') }}"><i class="fa fa-shopping-basket"></i>
-                            <span class="badge">{{ Session::has('cart') ? Session::get('cart') ->totalQuantity : ''}}
-                            </a>
+                            <a class="nav-link" href="shoppingcart"><i class="fa fa-shopping-basket"></i></a>
                         </li>
+                        @endguest
                     </ul>
                 </div>
             </div>

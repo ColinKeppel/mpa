@@ -15,14 +15,16 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index( )
+    public function index(Request $request)
     {
+        $session = $request->session()->all();
         $products = product::get();
         $categories = category::get();
 
         $data = [
             "products" => $products,
-            "categories" => $categories
+            "categories" => $categories,
+            'session' => $session
         ];
         
         return view('index', $data);

@@ -18,7 +18,7 @@ class ShoppingCartController extends Controller
     public function index()
     {
         $cart = ShoppingCart::getCart();
-        return $cart;
+        return view('shopping-cart', compact('cart'));
     }
 
     /**
@@ -37,22 +37,22 @@ class ShoppingCartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
-        request()->validate([
-            'id' => 'required',
-            'quantity' => 'required'
-        ]);
+        $productId = $request->get('id');
+        $productAmount = $request->get('quantity');
 
-        $product = Product::find($id);
-        $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        $cart = new ShoppingCart($oldCart);
-        $cart->addCartItem($product, $product->id);
+        $product = Product::find($productId);
 
-        $request->session()->put('cart', $cart);
-        dd($request->session()->get('cart'));
-        var_dump($cart);
-        return redirect()->route('ShoppingCartController.index');
+        $productArray = [
+            'product' => $product->name,
+            'id' => $product->id,
+            'price' => $product->price,
+            'amount' => $productAmount
+        ];
+
+        ShoppingCart::addCartItem($productArray);
+        return back();
     }
 
     /**
