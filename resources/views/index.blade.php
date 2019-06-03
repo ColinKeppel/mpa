@@ -34,11 +34,6 @@
                 </div>
                 
                 <div id="footerBox" class="card-footer">
-                  <!-- {{ Form::open(array ( 'action'('ShoppingCartController@store', $product->id))) }}
-                    <input value="{{$product['id']}}" name="id" hidden>
-                    <button class="btn btn-primary" type="submit" href="" role="button">Add to cart</button>
-                    <input type="number" class="form-control col-5 float-right" value="1" name="quantity">
-                  {{ Form::close() }} -->
                   <form action="shoppingcart" method="POST">
                   {{ csrf_field() }}
                     <input value="{{$product['id']}}" name="id" hidden>
@@ -49,7 +44,7 @@
                 
               </div>
             </div>
-  @endforeach
+            @endforeach
 
 {{-- {{ route('getAddToCart', ['id' => $product->id]) }} --}}
         </div>

@@ -17,53 +17,31 @@
                     </tr>
                 </thead>
                 <tbody>
+                @foreach ($cart as $product)
                     <tr>
                         <td class="col-sm-8 col-md-6">
                         <div class="media">
                             <div class="media-body">
-                                <h4 class="media-heading"><a href="#">Product name</a></h4>
+                                <h4 class="media-heading"><a href="#">{{ $product['product'] }}</a></h4>
                             </div>
                         </div></td>
                         <td class="col-sm-1 col-md-1" style="text-align: center">
                         <input type="email" class="form-control" id="exampleInputEmail1" value="3">
                         </td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>$4.87</strong></td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>€{{ $product['price'] }}</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>€14.61</strong></td>
                         <td class="col-sm-1 col-md-1">
                         <button type="button" class="btn btn-danger">
                             <span class="glyphicon glyphicon-remove"></span> Remove
                         </button></td>
                     </tr>
-                    <tr>
-                        <td class="col-md-6">
-                        <div class="media">
-                            <div class="media-body">
-                                <h4 class="media-heading"><a href="#">Product name</a></h4>
-                            </div>
-                        </div></td>
-                        <td class="col-md-1" style="text-align: center">
-                        <input type="email" class="form-control" id="exampleInputEmail1" value="2">
-                        </td>
-                        <td class="col-md-1 text-center"><strong>$4.99</strong></td>
-                        <td class="col-md-1 text-center"><strong>$9.98</strong></td>
-                        <td class="col-md-1">
-                        <button type="button" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-remove"></span> Remove
-                        </button></td>
-                    </tr>
+                @endforeach
                     <tr>
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
-                        <td><h5>Subtotal</h5></td>
-                        <td class="text-right"><h5><strong>$24.59</strong></h5></td>
-                    </tr>
-                    <tr>
                         <td>   </td>
                         <td>   </td>
-                        <td>   </td>
-                        <td><h5>Estimated shipping</h5></td>
-                        <td class="text-right"><h5><strong>$6.94</strong></h5></td>
                     </tr>
                     <tr>
                         <td>   </td>
@@ -90,5 +68,4 @@
         </div>
     </div>
 </div>
-{{ dd($cart) }}
  @endsection

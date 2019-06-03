@@ -18,7 +18,7 @@ class ShoppingCartController extends Controller
     public function index()
     {
         $cart = ShoppingCart::getCart();
-        return view('shopping-cart', compact('cart'));
+        return dd($cart);
     }
 
     /**
@@ -45,14 +45,12 @@ class ShoppingCartController extends Controller
         $product = Product::find($productId);
 
         $productArray = [
-            'product' => $product->name,
             'id' => $product->id,
-            'price' => $product->price,
-            'amount' => $productAmount
+            'quantity' => $productAmount
         ];
 
         ShoppingCart::addCartItem($productArray);
-        return back();
+        return redirect("/");
     }
 
     /**

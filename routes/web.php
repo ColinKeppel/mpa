@@ -19,4 +19,4 @@ Route::get('/succes', 'SuccesController@index');
 
 Route::resource('/shoppingcart', 'ShoppingCartController');
 
-Route::get('/add-to-cart/{id}', 'ProductController@getAddToCart')->name('getAddToCart');
+//Route::get('/add-to-cart/{id}', 'ProductController@getAddToCart')->name('getAddToCart');
