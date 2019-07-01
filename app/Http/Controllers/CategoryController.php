@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function show($id)
     {
-        $products = Category::find($id)->products()->get();
+        $products = Category::find($id)->products()->paginate(6);
 
         $categories = Category::all();
 

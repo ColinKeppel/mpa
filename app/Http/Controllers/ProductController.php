@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $session = $request->session()->all();
-        $products = product::get();
+        $products = product::paginate(6);
         $categories = category::get();
 
         $data = [

@@ -46,9 +46,15 @@
             </div>
             @endforeach
 
+  
 {{-- {{ route('getAddToCart', ['id' => $product->id]) }} --}}
         </div>
         <!-- /.row -->
+
+        <div class="text-center">
+          {!! $products->links(); !!}
+        </div>
+
 
       </div>
       <!-- /.col-lg-9 -->

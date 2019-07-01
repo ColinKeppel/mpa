@@ -95,7 +95,10 @@ class ShoppingCartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = ShoppingCart::getCartItem($id);
+        $item['quantity'] = $request->input('quantity');
+        ShoppingCart::saveCartItem($item);
+        return redirect("/shoppingcart");
     }
 
     /**

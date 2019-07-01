@@ -17,6 +17,10 @@ use Illuminate\Http\Request;
             return $cart;
         }
 
+        public static function saveCart($cart) {
+            session(['cart' => $cart]);
+        }
+
         public static function addCartItem($product) {
             $cart = self::getCart();
             if(array_key_exists($product['id'], $cart)) {
@@ -32,6 +36,17 @@ use Illuminate\Http\Request;
         public static function getCartItem($id) {
             $cart = self::getCart();
             return $cart[$id];
+        }
+
+        public static function saveCartItem($cartItem) {
+            if($cartItem['quantity'] == 0)
+            {
+                self::delete($cartItem['id']);
+            } else {
+                $cart = self::getCart();
+                $cart[$cartItem["id"]] = $cartItem;
+                self::saveCart($cart);
+            }
         }
 
         /**

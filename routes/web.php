@@ -11,16 +11,18 @@
 |
 */
 
-Route::get('/', 'ProductController@index');
+Route::get('/', 'ProductController@index')->name('home');
 
 Auth::routes();
 
 Route::get('/succes', 'SuccesController@index');
 
-Route::get('/completed', 'SuccesController@orderComplete')->name('completed');
+Route::get('/orders', 'SuccesController@orderComplete')->name('orders')->middleware('auth');
 
 Route::resource('/shoppingcart', 'ShoppingCartController');
 
 Route::get('/category/{id}', 'CategoryController@show')->name('categories');
+
+
 
 //Route::get('/add-to-cart/{id}', 'ProductController@getAddToCart')->name('getAddToCart');

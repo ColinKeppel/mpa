@@ -48,7 +48,9 @@
 {{-- {{ route('getAddToCart', ['id' => $product->id]) }} --}}
     </div>
     <!-- /.row -->
-
+    <div class="text-center">
+        {!! $products->links(); !!}
+      </div>
   </div>
         </div>
 

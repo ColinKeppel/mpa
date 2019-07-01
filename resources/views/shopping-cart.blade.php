@@ -25,7 +25,11 @@
                             </div>
                         </div></td>
                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                        <input type="number" class="form-control" value="{{ $product['quantity'] }}">
+                        <form method="POST" action="{{ route('shoppingcart.update', $product['id']) }}">
+                                @method("PATCH")
+                                @csrf
+                                <input onchange="this.form.submit()" type="number" class="form-control" value="{{ $product['quantity'] }}" name="quantity">
+                            </form>
                         </td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>€{{ $product['price'] }}</strong></td>
                         <td class="col-sm-1 col-md-1">
@@ -53,13 +57,15 @@
                         <td>   </td>
                         <td>   </td>
                         <td>
-                        <button type="button" class="btn btn-default">
+                        <a href="{{ route('home') }}" class="btn btn-default">
                             <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
-                        </button></td>
+                        </a>
+                        </td>
                         <td>
-                        <button type="button" class="btn btn-success">
-                            Checkout <span class="glyphicon glyphicon-play"></span>
-                        </button></td>
+                        <a href="{{ route('orders') }}" class="btn btn-success">Checkout
+                            <span class="glyphicon glyphicon-play"></span>
+                        </a>
+                    </td>
                     </tr>
                 </tbody>
             </table>
