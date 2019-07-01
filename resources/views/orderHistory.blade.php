@@ -23,36 +23,6 @@
 							<span>entries</span>
 						</div>
 					</div>
-                    <div class="col-sm-9">
-						<button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
-						<div class="filter-group">
-							<label>Name</label>
-							<input type="text" class="form-control">
-						</div>
-						<div class="filter-group">
-							<label>Location</label>
-							<select class="form-control">
-								<option>All</option>
-								<option>Berlin</option>
-								<option>London</option>
-								<option>Madrid</option>
-								<option>New York</option>
-								<option>Paris</option>								
-							</select>
-						</div>
-						<div class="filter-group">
-							<label>Status</label>
-							<select class="form-control">
-								<option>Any</option>
-								<option>Delivered</option>
-								<option>Shipped</option>
-								<option>Pending</option>
-								<option>Cancelled</option>
-							</select>
-						</div>
-						<span class="filter-icon"><i class="fa fa-filter"></i></span>
-                    </div>
-                </div>
 			</div>
             <table class="table table-striped table-hover">
                 <thead>
@@ -114,20 +84,6 @@
                     </tr>
                 </tbody>
             </table>
-			<div class="clearfix">
-                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                <ul class="pagination">
-                    <li class="page-item disabled"><a href="#">Previous</a></li>
-                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
-					<li class="page-item"><a href="#" class="page-link">6</a></li>
-					<li class="page-item"><a href="#" class="page-link">7</a></li>
-                    <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                </ul>
-            </div>
         </div>
     </div>     
 @endsection                         		                            

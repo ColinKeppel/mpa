@@ -21,4 +21,6 @@ Route::get('/completed', 'SuccesController@orderComplete')->name('completed');
 
 Route::resource('/shoppingcart', 'ShoppingCartController');
 
+Route::get('/category/{id}', 'CategoryController@show')->name('categories');
+
 //Route::get('/add-to-cart/{id}', 'ProductController@getAddToCart')->name('getAddToCart');
