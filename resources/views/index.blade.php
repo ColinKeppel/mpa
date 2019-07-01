@@ -29,7 +29,7 @@
                   <h4 class="card-title">
                     <a href="#">{{$product['name']}} </a>
                   </h4>
-                  <h5>€ {{$product['price']}}</h5>
+                  <h5>€{{number_format($product['price'], 2, ",", ".")}}</h5>
                   <p class="card-text">{{$product['details']}}</p>
                 </div>
                 

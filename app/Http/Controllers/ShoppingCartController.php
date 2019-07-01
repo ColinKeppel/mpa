@@ -17,8 +17,19 @@ class ShoppingCartController extends Controller
      */
     public function index()
     {
-        $cart = ShoppingCart::getCart();
-        return dd($cart);
+        $cart = ShoppingCart::getCart();//gets all the items in cart
+        $products = Product::find(array_column($cart, 'id'))->toArray();//gets the corresponding products to the cart items. Then gets the properties as an array so I can add them to objects in $cartItems
+        $cartItems = array();
+        foreach ($cart as $cartItem) {//loops through every object in $cartItems and gets the corresponding array from $products and puts them in the $cartItems object
+            $product = $products[array_search($cartItem["id"], array_column($products, 'id'))];// gets the corresponding array
+            $cartItems[] = array_merge($cartItem, $product);   
+        }
+
+        $data = [
+            'cartItems' => $cartItems,
+            'totalPrice' => ShoppingCart::getTotalPrice()
+        ];
+        return view('shopping-cart', $data);
     }
 
     /**
@@ -95,6 +106,7 @@ class ShoppingCartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        ShoppingCart::delete($id);
+        return redirect('/shoppingcart');
     }
 }

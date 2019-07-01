@@ -25,4 +25,9 @@ class SuccesController extends Controller
     {
         return view('succes');
     }
+
+    public function orderComplete()
+    {
+        return view('orderHistory');
+    }
 }

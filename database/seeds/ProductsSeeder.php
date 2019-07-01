@@ -14,27 +14,27 @@ class ProductsSeeder extends Seeder
         $products = [
             [
                 'name' => 'Minecraft',
-                'price' => '29.99',
+                'price' => 29.99,
                 'details' => 'survival game',
             ], [
                 'name' => 'Pokemon Go',
-                'price' => '4.99',
+                'price' => 4.99,
                 'details' => 'Real life open world catch game',
             ], [
                 'name' => 'Dota 2',
-                'price' => '10',
+                'price' => 14.99,
                 'details' => 'Best game ever',
             ], [
                 'name' => 'Monopoly',
-                'price' => '12.99',
+                'price' => 12.99,
                 'details' => 'Money, Mystery',
             ],[
                 'name' => 'Risk',
-                'price' => '10',
+                'price' => 10.99,
                 'details' => 'Tactics',
             ],[
                 'name' => 'Clash of clans',
-                'price' => '2.99',
+                'price' => 2.99,
                 'details' => 'Tactics, City-builder',
             ]
         ];

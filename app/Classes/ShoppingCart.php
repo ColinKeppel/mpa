@@ -3,6 +3,8 @@
 namespace App\Classes;
 
 use Session;
+use App\Product;
+use App\Classes\ShoppingCart;
 use Illuminate\Http\Request;
  
  class ShoppingCart {
@@ -30,5 +32,28 @@ use Illuminate\Http\Request;
         public static function getCartItem($id) {
             $cart = self::getCart();
             return $cart[$id];
+        }
+
+        /**
+         * @return float
+         */
+        public static function getTotalPrice() : float
+        {
+            $cart = self::getCart();
+            $totalPrice = 0;
+            $products = Product::find(array_column($cart, 'id'), ['id', 'price']);
+            foreach ($products as $product) {
+                
+                $quantity = $cart[$product->id]['quantity'];
+                $totalPrice += $quantity * floatval($product["price"]);
+            }
+            return $totalPrice;
+        }
+
+        public static function delete($id)
+        {
+            $cart = self::getCart();
+            unset($cart[$id]);
+            session(['cart' => $cart ]);
         }
  }

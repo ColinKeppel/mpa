@@ -19,10 +19,19 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <script type="text/javascript">
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 
   <!-- Custom styles for this template -->
   <link rel="stylesheet" href="{{ asset('/css/css.css') }}"/>
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/app.css') }}"/>
+  <link rel="stylesheet" href="{{ asset('/css/orderHistory.css') }}"/>
+
 </head>
 <body>
     <div id="app">
@@ -58,6 +67,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                <a class="dropdown-item" href="{{ route('completed') }}">Order history</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -69,10 +80,10 @@
                                     </form>
                                 </div>
                             </li>
+                        @endguest
                         <li class="nav-item">
                             <a class="nav-link" href="shoppingcart"><i class="fa fa-shopping-basket"></i></a>
                         </li>
-                        @endguest
                     </ul>
                 </div>
             </div>
