@@ -71,9 +71,10 @@ class ProductController extends Controller
      * @param  \App\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(product $product)
+    public function show($id)
     {
-        //
+        $productItems = Product::where('id', $id)->first();
+        return view('productDetails', compact('productItems'));
     }
 
     /**

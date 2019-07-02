@@ -71,4 +71,9 @@ use Illuminate\Http\Request;
             unset($cart[$id]);
             session(['cart' => $cart ]);
         }
+
+        public static function clearCart()
+        {
+            session()->flush();
+        }
  }

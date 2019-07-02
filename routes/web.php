@@ -17,7 +17,13 @@ Auth::routes();
 
 Route::get('/succes', 'SuccesController@index');
 
-Route::get('/orders', 'SuccesController@orderComplete')->name('orders')->middleware('auth');
+Route::get('/history', 'OrderController@index')->name('history');
+
+Route::get('/orderDetails/{id}', 'OrderController@show')->name('orderDetails');
+
+Route::get('/productDetails/{id}', 'ProductController@show')->name('productDetails');
+
+Route::get('/orders', 'OrderController@store')->name('orders')->middleware('auth');
 
 Route::resource('/shoppingcart', 'ShoppingCartController');
 

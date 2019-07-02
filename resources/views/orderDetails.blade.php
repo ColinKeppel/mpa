@@ -13,25 +13,24 @@
                 <thead>
                     <tr>
                         <th>OrderId</th>
+                        <th>Product</th>
 						<th>Order Date</th>												
-						<th>Total price</th>
+						<th>Quantity</th>
 						<th>Action</th> 
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($Orders as $Order)
+                @foreach ($orderItems as $orderItem)
                     <tr>
-                        <td>{{ $Order['id'] }}</td>
-                        <td>{{ $Order["created_at"] }}</td>                        
-						<td>€{{ $Order['total_price'] }}</td>
-						<td><a href="{{ route('orderDetails', $Order->id) }}" class="view" title="View Details" data-toggle="tooltip"><i class="fas fa-directions"></i></a></td>
+                        <td>{{ $orderItem['order_id'] }}</td>
+                        <td>{{ $orderItem['name'] }}</td>
+                        <td>{{ $orderItem["created_at"] }}</td>                        
+						<td>{{ $orderItem['quantity'] }}</td>
+						<td><a href="{{ URL::previous() }}" class="view" data-toggle="tooltip"><i class="fas fa-directions"></i></a></td>
                     </tr>
                 @endforeach      
                 </tbody> 
               </table>    
         </div>
-            <div class="text-center">
-                {!! $Orders->links(); !!}
-            </div>
     </div>     
-@endsection                         		                            
+@endsection                   		                            

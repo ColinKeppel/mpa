@@ -27,7 +27,7 @@
               <div class="card h-100">
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#">{{$product['name']}} </a>
+                    <a href="{{ route('productDetails', $product->id)  }}">{{$product['name']}} </a>
                   </h4>
                   <h5>€{{number_format($product['price'], 2, ",", ".")}}</h5>
                   <p class="card-text">{{$product['details']}}</p>

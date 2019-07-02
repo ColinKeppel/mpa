@@ -1,6 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Classes\ShoppingCart;
+use App\Order;
+use Auth;
+use App\Product;
+use App\Category;
+use App\Order_Item;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +19,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+
+        $Orders = Order::where('user_id', Auth::id())->paginate(5);
+
+        return view('orderHistory', compact('Orders'));
     }
 
     /**
@@ -34,7 +43,20 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cart = ShoppingCart::getCart();
+        $NewOrder = new Order();
+        $NewOrder->user_id = Auth::id();
+        $NewOrder->total_price = ShoppingCart::getTotalPrice();
+        $NewOrder->save();
+        foreach ($cart as $item) {
+            $OrderItem = new Order_Item();
+            $OrderItem->order_id = $NewOrder->id;
+            $OrderItem->product_id = $item["id"];
+            $OrderItem->quantity = $item["quantity"];
+            $OrderItem->save();
+        }
+        ShoppingCart::clearCart();
+        return redirect("/");
     }
 
     /**
@@ -45,7 +67,11 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $orderItems = Order_Item::where('order_id', $id)
+            ->select('orders_items.*', 'products.name')
+            ->join('products', 'orders_items.product_id', '=', 'products.id')
+            ->get();
+        return view('orderDetails', compact('orderItems'));
     }
 
     /**

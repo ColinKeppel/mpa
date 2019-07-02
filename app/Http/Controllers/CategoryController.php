@@ -12,7 +12,6 @@ class CategoryController extends Controller
         $products = Category::find($id)->products()->paginate(6);
 
         $categories = Category::all();
-
         return view('category', compact('products', 'categories'));
     }
 }
